@@ -16,6 +16,11 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
+from bookmark.views import BookmarkListView, BookmarkDetailView
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+
+    url(r'^bookmark/$', BookmarkListView.as_view(), name='list'),
+    url(r'^bookmark/(?P<pk>\d+)/$', BookmarkDetailView.as_view(), name='detail'),
 ]
